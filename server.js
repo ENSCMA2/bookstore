@@ -6,6 +6,9 @@ let morgan = require('morgan');
 let bodyParser = require('body-parser');
 let port = 8080;
 let book = require('./app/routes/book');
+let course = require('./app/routes/course');
+let student = require('./app/routes/student');
+let teacher = require('./app/routes/teacher');
 let config = require('config'); //we load the db location from the JSON files
 //db options
 let options = { 
@@ -30,7 +33,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());                                    
 app.use(bodyParser.json({ type: 'application/json'}));  
 
-app.get("/", (req, res) => res.json({message: "Welcome to our Bookstore!"}));
+app.get("/", (req, res) => res.json({message: "Welcome to our School!"}));
 
 app.route("/book")
 	.get(book.getBooks)
@@ -39,6 +42,30 @@ app.route("/book/:id")
 	.get(book.getBook)
 	.delete(book.deleteBook)
 	.put(book.updateBook);
+
+app.route("/course")
+	.get(course.getCourses)
+	.post(course.postCourse);
+app.route("/course/:id")
+	.get(course.getCourse)
+	.delete(course.deleteCourse)
+	.put(course.updateCourse);
+
+app.route("/student")
+	.get(student.getStudents)
+	.post(student.postStudent);
+app.route("/student/:id")
+	.get(student.getStudent)
+	.delete(student.deleteStudent)
+	.put(student.updateStudent);
+
+app.route("/teacher")
+	.get(teacher.getTeachers)
+	.post(teacher.postTeacher);
+app.route("/teacher/:id")
+	.get(teacher.getTeacher)
+	.delete(teacher.deleteTeacher)
+	.put(teacher.updateTeacher);
 
 
 app.listen(port);

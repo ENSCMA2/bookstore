@@ -35,7 +35,7 @@ function postCourse(req, res) {
  * GET /course/:id route to retrieve a course given its id.
  */
 function getCourse(req, res) {
-	Book.findById(req.params.id, (err, course) => {
+	Course.findById(req.params.id, (err, course) => {
 		if(err) res.send(err);
 		//If no errors, send it back to the client
 		res.json(course);

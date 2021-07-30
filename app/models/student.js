@@ -7,8 +7,8 @@ let StudentSchema = new Schema(
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     gradYear: { type: Number, required: true, min: 1 },
-    courses: { type: Int32Array, required: true}, 
-    grades: { type: Float32Array, required: true}
+    courses: { type: Array, required: true}, 
+    grades: { type: Array, required: true}
   }, 
   { 
     versionKey: false

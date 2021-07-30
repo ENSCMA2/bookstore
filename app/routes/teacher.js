@@ -54,7 +54,7 @@ function deleteTeacher(req, res) {
  * PUT /teacher/:id to update a teacher given its id
  */
 function updateTeacher(req, res) {
-	Teacherr.findById({_id: req.params.id}, (err, teacher) => {
+	Teacher.findById({_id: req.params.id}, (err, teacher) => {
 		if(err) res.send(err);
 		Object.assign(teacher, req.body).save((err, teacher) => {
 			if(err) res.send(err);
@@ -64,4 +64,4 @@ function updateTeacher(req, res) {
 }
 
 //export all the functions
-module.exports = { getTeachers, postTeacher, getTeacher, deleteTeacherr, updateTeacher };
+module.exports = { getTeachers, postTeacher, getTeacher, deleteTeacher, updateTeacher };

@@ -6,7 +6,7 @@ let TeacherSchema = new Schema(
   {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    courses: { type: Int32Array, required: true}, 
+    courses: { type: Array, required: true}, 
   }, 
   { 
     versionKey: false
